@@ -1,0 +1,26 @@
+<html>
+    <canvas id="mycanvas" width="1500" height="800"></canvas>
+    <script src="countries.js"></script>
+    <script>
+        var c = document.getElementById("mycanvas");
+        var ctx = c.getContext('2d');
+        
+        data.sort(function(a, b){
+            return a.population - b.population;
+        })
+        data.reverse();
+        
+        var y =0 
+        for (i = 0; i<10 ; i++) {
+            ctx.fillStyle = "black";
+            ctx.fillRect(0,y,data[i].population/1000000,50);
+            ctx.fillStyle = "gold";
+            ctx.font = "30px Arial";
+            if (data[i].country.length > 15) {
+                ctx.font = "15px Arial"
+            }
+            ctx.fillText(data[i].country,10,y+35);
+            y=y+55;
+        }
+    </script>
+</html>
